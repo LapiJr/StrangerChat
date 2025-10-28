@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Preview — Restaurant DeLuca</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      body { padding: 1.5rem; }
+      .preview-grid { display: grid; grid-template-columns: 320px 1fr; gap: 1rem; max-width: 1400px; margin: 0 auto; }
+      .pages-list { background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 12px; }
+      .pages-list a { display: block; margin-bottom: 0.5rem; }
+      iframe { width: 100%; height: calc(100vh - 140px); border: none; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+      .actions { margin-top: 1rem; display:flex; gap:0.5rem; }
+      .hint { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Preview — Restaurant DeLuca</h1>
+    <p class="hint">Click a page to preview it in the right-hand frame, or use the Open in new tab buttons to open the full page in a separate tab.</p>
+
+    <div class="preview-grid">
+      <aside class="pages-list">
+        <strong>Pages</strong>
+        <a href="#" data-src="index.html">Home</a>
+        <a href="#" data-src="menu.html">Menu</a>
+        <a href="#" data-src="reservation.html">Reservation</a>
+        <a href="#" data-src="about.html">About</a>
+
+        <div class="actions">
+          <button id="open-all">Open all in new tabs</button>
+          <button id="open-current">Open current in new tab</button>
+        </div>
+
+        <div class="hint">Tip: If you serve locally, use <code>python3 -m http.server</code> and open this preview at <code>http://localhost:8000/preview.html</code>.</div>
+      </aside>
+
+      <main>
+        <iframe id="preview-frame" src="index.html" title="Site preview"></iframe>
+      </main>
+    </div>
+
+    <script>
+      const links = document.querySelectorAll('.pages-list a[data-src]');
+      const iframe = document.getElementById('preview-frame');
+      let current = 'index.html';
+
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const src = link.getAttribute('data-src');
+          iframe.src = src;
+          current = src;
+        });
+      });
+
+      document.getElementById('open-all').addEventListener('click', () => {
+        ['index.html','menu.html','reservation.html','about.html'].forEach(p => window.open(p, '_blank'));
+      });
+
+      document.getElementById('open-current').addEventListener('click', () => {
+        window.open(current, '_blank');
+      });
+    </script>
+  </body>
+</html>

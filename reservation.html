@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserve a Table | Restaurant DeLuca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script defer src="assets/js/main.js"></script>
+    <script src="https://apis.google.com/js/api.js" async defer></script>
+    <script defer src="assets/js/reservation.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="index.html">DeLuca</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <a class="btn-primary" href="reservation.html">Reserve</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="reservation-container" data-animate>
+        <div>
+          <p class="section-subtitle">Plan your evening</p>
+          <h1>Reserve your table</h1>
+          <p>
+            Choose your desired date and explore live availability powered by Google Calendar. Once you select an open time slot, confirm
+            the booking and we'll prepare your table.
+          </p>
+          <ul id="availability-list">
+            <li>Loading availability…</li>
+          </ul>
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+            Need assistance? Call us on +31 70 123 4567 and we will curate the perfect evening.
+          </p>
+        </div>
+        <div class="calendar-container">
+          <form id="reservation-form">
+            <div>
+              <label for="reservation-date">Preferred date</label>
+              <input type="date" id="reservation-date" name="date" required />
+            </div>
+            <div>
+              <label for="reservation-time">Time</label>
+              <input type="time" id="reservation-time" name="time" required />
+            </div>
+            <div>
+              <label for="reservation-duration">Dining duration</label>
+              <select id="reservation-duration" name="duration">
+                <option value="90">90 minutes</option>
+                <option value="120">2 hours</option>
+                <option value="150">2 hours 30 minutes</option>
+              </select>
+            </div>
+            <div>
+              <label for="reservation-size">Party size</label>
+              <select id="reservation-size" name="size">
+                <option value="2">2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+                <option value="5">5 guests</option>
+                <option value="6">6 guests</option>
+                <option value="7">7 guests</option>
+                <option value="8">8 guests</option>
+              </select>
+            </div>
+            <div>
+              <label for="reservation-name">Full name</label>
+              <input type="text" id="reservation-name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="reservation-email">Email</label>
+              <input type="email" id="reservation-email" name="email" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="reservation-notes">Celebration details</label>
+              <textarea id="reservation-notes" name="notes" placeholder="Let us know about allergies or special requests"></textarea>
+            </div>
+            <button class="btn-primary" type="submit">Confirm reservation</button>
+          </form>
+          <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
+            Tip: Add the reservation email to your Google Calendar to receive automatic updates. Confirmation emails are sent instantly
+            when credentials are configured.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div>
+          <h3>DeLuca</h3>
+          <p>Spuistraat 12, The Hague<br />Open Tuesday – Sunday, 17:00 - 23:30</p>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="TikTok">TT</a>
+          </div>
+        </div>
+        <div>
+          <h3>Reservations</h3>
+          <p>Email <a href="mailto:reservations@deluca.nl">reservations@deluca.nl</a><br />Call +31 70 123 4567</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
